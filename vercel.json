@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "regions": ["hnd1"],
+  "routes": [
+    {"src": "/", "dest": "static/index.html" }
+  ]
+}
