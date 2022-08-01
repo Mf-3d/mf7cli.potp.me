@@ -1,4 +1,7 @@
 {
   "version": 2,
-  "regions": ["hnd1"]
+  "regions": ["hnd1"],
+  "routes": [
+    { "src": "/(.*)", "status": 404, "dest": "/error/404.html" }
+  ]
 }
