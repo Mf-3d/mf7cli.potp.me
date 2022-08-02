@@ -1,0 +1,22 @@
+{
+  "name": "mf7cli.potp.me",
+  "version": "0.1.0",
+  "description": "新サイトのドメインはGrapeAppleさんに貸してもらうことにした（？）",
+  "main": "api/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mf-3d/mf7cli.potp.me.git"
+  },
+  "author": "mf7cli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mf-3d/mf7cli.potp.me/issues"
+  },
+  "homepage": "https://github.com/Mf-3d/mf7cli.potp.me#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
