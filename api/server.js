@@ -2,9 +2,9 @@ const express = require('express');
 
 const app = express();
 
-app.use(`${__dirname}/style`, express.static('style'));
-app.use(`${__dirname}/js`, express.static('js'));
-app.use(`${__dirname}/images`, express.static('images'));
+app.use(`/style`, express.static(`${__dirname}/style`));
+app.use(`/js`, express.static(`${__dirname}/js`));
+app.use(`/images`, express.static(`${__dirname}/images`));
 
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
