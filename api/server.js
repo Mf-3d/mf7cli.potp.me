@@ -17,7 +17,6 @@ app.get('/test', (req, res) => {
 app.use((req, res, next) => {
   res.sendFile(`${__dirname}/error/404.html`);
 });
-
-app.listen(3000, () => {
-  console.log('サーバーが起動しました。');
+let server = app.listen(3000, function(){
+  console.log("Node.js is listening to PORT:" + server.address().port);
 });
