@@ -2,6 +2,6 @@
   "version": 2,
   "regions": ["hnd1"],
   "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/(.*)", "dest": "/api/server.js" }
   ]
 }
