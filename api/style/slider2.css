@@ -33,10 +33,9 @@
    width:8px;/*ドットボタンのサイズ*/
    height:12px;/*ドットボタンのサイズ*/
    display:block;
-   border-radius:50%;
-   background:#ccc;/*ドットボタンの色*/
+   background:#333;/*ドットボタンの色*/
 }
 
 .slider2 .slick-dots .slick-active button{
-  background:#333;/*ドットボタンの現在地表示の色*/
+  background:#ccc;/*ドットボタンの現在地表示の色*/
 }

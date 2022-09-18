@@ -1,0 +1,119 @@
+{
+  "services": [
+    {
+      "id": "mf7cli-bbs",
+      "name": "mf7cli-BBS",
+      "description": "Node.js製の掲示板です。<br/>SNSに近いUIでシンプルなのが特徴です。<br/><br/>領域違反さんが開発に参加しています。",
+      "links": [
+        {
+          "url": "https://bbs.mf7cli.potp.me",
+          "name": "サイト"
+        }
+      ],
+      "icon": "/images/icon-fullscreen/mf7cli_bbs.png",
+      "tags": ["web"]
+    },
+    {
+      "id": "liquidclii_hash",
+      "name": "LiquidClii #",
+      "description": "Discordのボット３代目です。<br/>名詞をランダムにする機能くらいしか目立った機能はないです。<br/>（このボットは<a href=\"/services/mf7cli_server_3\">mf7cli Server 3</a>でのみ使用できます。）<br/><br/>waryu-YNDさんが開発に参加しています。",
+      "links": [],
+      "icon": "/images/icon-fullscreen/liquidclii_hash.png",
+      "tags": ["LiquidClii", "Discord", "Bot"]
+    },
+    {
+      "id": "liquidclii_v2",
+      "name": "LiquidClii V2",
+      "description": "Discordのボット２代目です。<br/>CliPoint（サーバーコイン）のシステムがあり、買い物などができるボットです。<br/>（このボットは<a href=\"/services/mf7cli_server_2022\">mf7cli Server 2022</a>でのみ使用できます。）",
+      "links": [],
+      "icon": "/images/icon-fullscreen/liquidclii_v2.jpeg",
+      "tags": ["LiquidClii", "Discord", "Bot", "End of service"]
+    },
+    {
+      "id": "liquidclii_sudo",
+      "name": "LiquidClii（出張可能版）",
+      "description": "Discordのボット１代目の派生で、他のサーバーでも動かせるようなLiquidCliiです。<br/>しかし色々あって開発が中止されました。<br/>>元の名前はSudo-Botです。<br/><br/>（このボットは<a href=\"/services/mf7cli_server_1\">mf7cli Server</a>でのみ使用できます。）",
+      "links": [],
+      "icon": "/images/icon-fullscreen/liquidclii_sudo.png",
+      "tags": ["LiquidClii", "Discord", "Bot", "End of service"]
+    },
+    {
+      "id": "liquidclii_v1",
+      "name": "LiquidClii",
+      "description": "Discordのボット１代目です。<br/>特に機能はないです。<br/>（このボットは<a href=\"/services/mf7cli_server_1\">mf7cli Server</a>でのみ使用できます。）",
+      "links": [],
+      "icon": "/images/icon-fullscreen/liquidclii_v1.png",
+      "tags": ["LiquidClii", "Discord", "Bot", "End of service"]
+    },
+    {
+      "id": "mf7cli-s-discord-bot",
+      "name": "mf7cli's Discord Bot",
+      "description": "昔あったDiscordのボットです。<br/>壊れてました。それ以外は覚えてないです。",
+      "links": [],
+      "icon": "/images/icon-fullscreen/icon-notfound.png",
+      "tags": ["Maybe_exist", "Discord", "Bot"]
+    },
+    {
+      "id": "mf7cli_server_3",
+      "name": "mf7cli Server 3",
+      "description": "mf7cliの5代目？のDiscordサーバーです。<br/>過疎ってるので入ってきてほしいです（？）<br/>（memberロールがつくまではwelcomeチャンネルだけが見えます。）",
+      "links": [
+        {
+          "url": "https://discord.gg/xdC6yduaA6",
+          "name": "入ってみる"
+        }
+      ],
+      "icon": "/images/icon-fullscreen/mf7cli_server_3.png",
+      "tags": ["Discord Server", "Discord"]
+    },
+    {
+      "id": "mf7cli_server_2022",
+      "name": "mf7cli Server 2022",
+      "description": "mf7cliの多分4代目のDiscordサーバーです。<br/>過去一番の過疎サーバーです。<br/>LiquidClii V2でCliPointを貯めることができます。<br/>（サーバーにはもう入れません）",
+      "links": [],
+      "icon": "/images/icon-fullscreen/mf7cli_server_2022.png",
+      "tags": ["Discord Server", "Discord", "End of service"]
+    },
+    {
+      "id": "mf7cli_server_1",
+      "name": "mf7cli Server",
+      "description": "mf7cliのだいたい3代目のDiscordサーバーです。<br/>消そうか迷ってるサーバーです。<br/>（サーバーにはもう入れません）",
+      "links": [],
+      "icon": "/images/icon-fullscreen/mf7cli_server_1.png",
+      "tags": ["Discord Server", "Discord", "End of service"]
+    },
+    {
+      "id": "unistore",
+      "name": "uniStore",
+      "description": "いろいろストアになる予定です。<br/>まだ何もできてません。",
+      "links": [],
+      "icon": "/images/icon-fullscreen/icon-notfound.png",
+      "tags": ["web", "unfinished"]
+    },
+    {
+      "id": "minecraft_hide_li",
+      "name": "minecraft.hide.li",
+      "description": "私とwaryu-YNDさん、GrapeAppleさんが運営しているMinecraftサーバーです。<br/>Sorakimeさんもたまに来ます。",
+      "links": [],
+      "icon": "/images/icon-fullscreen/icon-notfound.png",
+      "tags": ["Minecraft"]
+    },
+    {
+      "id": "thinking_service",
+      "name": "@thinkingService",
+      "description": "thinkingの公式ボットです。<br/>単語を学習してツイートしてくれますが、よく鯖落ちします。<br/><br/>amaniaさんとEARTHさんが開発に参加しています。",
+      "links": [
+        {
+          "url": "https://twitter.com/thinkingService",
+          "name": "Twitter"
+        },
+        {
+          "url": "https://mf-3d.github.io/twitter-bot-thinking/",
+          "name": "Wiki（作成中）"
+        }
+      ],
+      "icon": "/images/icon-fullscreen/thinking-transparent.png",
+      "tags": ["Twitter", "thinking", "Bot"]
+    }
+  ]
+}
