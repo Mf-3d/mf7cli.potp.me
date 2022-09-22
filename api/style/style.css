@@ -109,6 +109,7 @@ main {
   box-shadow: 10px 10px 30px 10px #99999956;
   transition: width 0.5s;
   font-size: 0.8em;
+  margin-bottom: 1em;
 }
 
 .card img {

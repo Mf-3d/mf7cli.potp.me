@@ -12,11 +12,12 @@ app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/static/home.html`);
 });
 
-app.get('/services/', (req, res) => {
-  res.render('./services', { services: require('./data/services.json').services, title: '🔦 Services' });
+// サービス類
+app.get('/collections/', (req, res) => {
+  res.render('./services', { services: require('./data/services.json').services, title: '🔦 Collections' });
 });
 
-app.get('/services/:name/', (req, res) => {
+app.get('/collections/:name/', (req, res) => {
   const serviceIndex = require('./data/services.json').services.findIndex(serviceData => serviceData.id.toLowerCase() === req.params.name.toLowerCase());
 
   if (serviceIndex === -1) {
@@ -24,10 +25,10 @@ app.get('/services/:name/', (req, res) => {
     return;
   }
 
-  res.render('./servicePage', { serviceData: require('./data/services.json').services[serviceIndex] });
+  res.render('./servicePage', { serviceData: require('./data/services.json').services[serviceIndex], title: `<a href="/collections">🔦 Collections</a> > ${req.params.name}` });
 });
 
-app.get('/services/tag/:name/', (req, res) => {
+app.get('/collections/tag/:name/', (req, res) => {
   let filteredServices = [];
   require('./data/services.json').services.forEach(serviceData => {
     if (serviceData.tags.indexOf(req.params.name) !== -1) filteredServices[filteredServices.length] = serviceData;
@@ -38,7 +39,19 @@ app.get('/services/tag/:name/', (req, res) => {
     return;
   }
 
-  res.render('./services', { services: filteredServices, title: `<a href="/services">🔦 Services</a> > #${req.params.name}` });
+  res.render('./services', { services: filteredServices, title: `<a href="/collections">🔦 Collections</a> > #${req.params.name}` });
+});
+
+// ニュース類
+app.get('/news/', async (req, res) => {
+  const blog = await (require('./lib/promiseRqt'))('https://blog.mf7cli.repl.co/api/blog');
+  res.render('./news', { news: JSON.parse(blog), title: '📓 News' });
+});
+
+app.get('/news/:id/', async (req, res) => {
+  const blog = await (require('./lib/promiseRqt'))('https://blog.mf7cli.repl.co/api/blog');
+  
+  res.render('./newsArticle', { news: JSON.parse(blog).data[req.params.id], title: `<a href="/news">🔦 📓 News</a> > ${req.params.id}` });
 });
 
 app.use((req, res, next) => {

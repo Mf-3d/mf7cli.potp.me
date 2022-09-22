@@ -24,20 +24,17 @@
       </aside>
       <main>
         <a href="/">Home</a>
-        <a href="/collections">Collectionsに戻る</a>
         <article>
-          <% serviceData.tags.forEach((tag) => { %> 
-          <a class="tag" href="/collections/tag/<%= tag %>">#<%= tag %></a>
-          <% }) %>
-          <h2><a href="/collections">🔦 Collections</a> > <%- serviceData.name %></h2>
-          <img src="<%= serviceData.icon %>" style="width: 200px; height: 200px; box-shadow: 10px 10px 30px 10px #99999956; border-radius: 10px; object-fit: cover;"/>
-          <p>
-            <%- serviceData.description %>
-          </p>
-          <% serviceData.links.forEach((link) => { %> 
-          <a href="<%= link.url %>"><%= link.name %></a>
-          <% }) %>
-          
+          <h2>
+            <%- title %>
+          </h2>
+          <ul>
+            <% news.data.forEach((blog, number) => { %> 
+            <li>
+              <a href="/news/<%= number %>"><%= blog.title %></a>
+            </li>
+            <% }); %> 
+          </ul>
         </article>
       </main>
     </div>

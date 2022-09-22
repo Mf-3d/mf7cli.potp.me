@@ -24,6 +24,7 @@
       </aside>
       <main>
         <a href="/">Home</a>
+        <a href="/collections/tag/service">サービスを探す</a>
         <article>
           <h2>
             <%- title %>
@@ -33,17 +34,17 @@
             <div class="card">
               <img src="<%= serviceData.icon %>"/>
               <p>
-                <a href="/services/<%= serviceData.id %>"><%= serviceData.name %></a>
+                <a href="/collections/<%= serviceData.id %>"><%= serviceData.name %></a>
               </p>
               <p class="tags">
                 <% for (let i = 0; i < serviceData.tags.length; i++) {
                   if (i > 1) break;
                 %>
-                <a class="tag" href="/services/tag/<%= serviceData.tags[i] %>">#<%= serviceData.tags[i] %></a>
+                <a class="tag" href="/collections/tag/<%= serviceData.tags[i] %>">#<%= serviceData.tags[i] %></a>
                 <% } %>
               </p>
               <nav>
-                <a href="/services/<%= serviceData.id %>">詳細</a>
+                <a href="/collections/<%= serviceData.id %>">詳細</a>
                 <% serviceData.links.forEach(link => { %> 
                 <a href="<%= link.url %>"><%= link.name %></a>
                 <% }) %>
