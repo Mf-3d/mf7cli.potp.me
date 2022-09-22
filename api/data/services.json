@@ -166,7 +166,7 @@
     {
       "id": "finfo",
       "name": "Finfo",
-      "description": "パソコンの情報を表示してくれます。それだけです。<br/>開発中止してます。",
+      "description": "パソコンの情報を表示してくれます。それだけです。<br/>開発中止しています。",
       "links": [],
       "icon": "/images/icon-fullscreen/icon-notfound.png",
       "tags": ["aurora Project.", "application"]
@@ -174,7 +174,7 @@
     {
       "id": "minor-browser-migrator",
       "name": "Minor-Browser-Migrator",
-      "description": "",
+      "description": "マイナーなブラウザ間の移行を支援するツールです。",
       "links": [],
       "icon": "/images/icon-fullscreen/icon-notfound.png",
       "tags": ["aurora Project.", "application"]
@@ -182,7 +182,7 @@
     {
       "id": "mf7cli-ml",
       "name": "mf7cli.ml",
-      "description": "先代サイトです。<br/>グラスモーフィズムを使っていて綺麗です。",
+      "description": "先代サイトです。<br/>グラスモーフィズムを使っています。",
       "links": [
         {
           "url": "https://mf7cli.ml",
@@ -195,7 +195,7 @@
     {
       "id": "mf7cli-tk",
       "name": "mf7cli.tk",
-      "description": "別名mf7cli-Developmentsです。<br/>このサイトには開発しているコンテンツをまとめています。",
+      "description": "mf7cli-Developmentsです。<br/>このサイトには開発しているコンテンツをまとめています。",
       "links": [
         {
           "url": "https://mf7cli.tk",
