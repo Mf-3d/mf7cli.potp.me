@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>mf7cli-Web</title>
+    <title><%= title %> - mf7cli-Web</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="stylesheet" href="/style/main.css"/>
     <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
@@ -34,11 +34,11 @@
           </div>
         </a>
       </nav>
-      <div class="mainNewsColumn">News: <span><a href="">サイトが完成したよ</a></span></div>
       <main>
         <article>
           <a href="/">Home</a>
           <br/>
+          <%- content %>
         </article>
         <aside>
           <article>

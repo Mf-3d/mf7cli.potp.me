@@ -32,12 +32,25 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --site-background: #393939!important;
+    --site-color: #e35b5b!important;
+    --site-hover-color: #ffa2a2!important;
+    --site-text-color: #ffffff!important;
+  }
+}
+
 :root {
+  --site-background: #f5f5f5;
   --site-color: #e35b5b;
   --site-hover-color: #ffa2a2;
+  --site-text-color: #000000;
 }
+
 body {
-  background: #f5f5f5;
+  color: var(--site-text-color);
+  background: var(--site-background);
   margin: 0;
   font-family: 'Noto Sans JP', sans-serif;
   text-shadow: 10px 10px 15px #0000004c;
@@ -61,7 +74,7 @@ header {
   border-bottom: 5px solid var(--site-color);
   box-shadow: 10px 10px 30px 10px #99999956;
   top: 0;
-  background: #f5f5f5;
+  background: var(--site-background);
   z-index: 10;
   height: 75px;
 }
@@ -113,7 +126,7 @@ main {
 }
 
 .card img {
-  background: #e1e1e1;
+  background: var(--site-background);
   height: 5em;
   width: 100%;
   border-radius: 9px 9px 0px 0px;
@@ -140,7 +153,7 @@ main {
 }
 
 .card nav a {
-  background: #e1e1e1;
+  background: #f1f1f1;
   color: var(--site-color);
   width: 50%;
   margin: 0.5em;
@@ -191,7 +204,7 @@ img.emoji {
 }
 
 .tag {
-  color: #f5f5f5;
+  color: #f1f1f1;
   text-align: center;
   background: var(--site-color);
   width: 50%;
