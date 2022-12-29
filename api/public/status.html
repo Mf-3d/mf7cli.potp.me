@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/style/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"/>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/">Home</a>
+      <h1>Status</h1>
+      <h2 class="status-all-system">Retrieving data...</h2>
+      <h3>Downed sites</h3>
+      <ul class="down-systems">
+      </ul>
+    </div>
+    <img src="/image/mofu.gif" class="mofu" height="100"/>
+    <script>
+      // (async function () {
+      //   let data = await fetch("/api/v1/statusCode/get/all");
+      //   let json = await data.json();
+
+      //   let statusCodes = [];
+      //   json.forEach((siteStatus) => {
+      //     siteStatus.forEach((urlStatus) => {
+      //       statusCodes[statusCodes.length] = urlStatus.statusCode.toString();
+      //     });
+      //   });
+
+      //   if (statusCodes.filter(RegExp.prototype.test, /^(?!.*200).*$/)) {
+      //     if (!statusCodes.includes("200")) {
+      //       let element = document.querySelector(".status-all-system");
+      //       element.classList.add("major-outage");
+      //       element.innerHTML = "All sites are down.";
+      //     } else {
+      //       let element = document.querySelector(".status-all-system");
+      //       element.classList.add("patial-outage");
+      //       element.innerHTML = "Some sites are down.";
+      //     }
+
+      //     let element = document.querySelector(".down-systems");
+
+      //     json.forEach((siteStatus) => {
+      //       siteStatus.forEach((urlStatus) => {
+      //         if (urlStatus.statusCode !== 200) {
+      //           let statusElement = document.createElement("li");
+      //           statusElement.innerHTML = `${urlStatus.name} ー ${urlStatus.url}`;
+
+
+      //           if (urlStatus.statusCode === 0) {
+      //             statusElement.classList.add("no-response");
+      //           } else {
+      //             statusElement.classList.add("major-outage");
+      //           }
+
+      //           element.appendChild(statusElement);
+      //         }
+      //       });
+      //     });
+      //   } else {
+      //     let element = document.querySelector(".status-all-system");
+      //     element.classList.add("operational");
+      //     element.innerHTML = "All system is operational.";
+      //   }
+      // })();
+    </script>
+  </body>
+</html>

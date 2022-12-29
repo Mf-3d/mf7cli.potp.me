@@ -1,158 +1,148 @@
-const express = require('express');
-const fs = require("node:fs");
-const md = require('markdown-it')(
-  {
-    linkify: true,
-    breaks: true
-  }
-);
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-
-const listFiles = (dir) =>
-  fs.readdirSync(dir, { withFileTypes: true }).flatMap(dirent =>
-    dirent.isFile() ? [`${dir}/${dirent.name}`] : listFiles(`${dir}/${dirent.name}`)
-  )
-
+const express = require("express");
+const request = require("request");
 const app = express();
 
-app.use(`/style`, express.static(`${__dirname}/style`));
-app.use(`/js`, express.static(`${__dirname}/js`));
-app.use(`/images`, express.static(`${__dirname}/images`));
-app.set('view engine', 'ejs');
-app.set('views', `${__dirname}/views`);
-
-app.get('/', (req, res) => {
-  const page = fs.readFileSync(require("path").join(__dirname, "contents", "index.md"), { encoding: "utf-8" });
-
-  if (!page) {
-    res.status(404);
-
-    return;
+const sites = [
+  {
+    name: "えむえふねっと！",
+    url: [
+      "https://mf7cli.potp.me",
+      // "https://mf7cli.net"
+    ]
+  },
+  {
+    name: "Clii for LINE",
+    url: [
+      "https://clii.mf7cli.ml",
+      "https://clii.vercel.app"
+    ]
+  },
+  {
+    name: "mf7cli-RSS",
+    url: [
+      "https://mf7cli-rss.vercel.app"
+    ]
+  },
+  {
+    name: "Dataset-Maker for thinkerAI",
+    url: [
+      "https://dataset-maker.vercel.app"
+    ]
+  },
+  {
+    name: "mf7cli-Developments",
+    url: [
+      "https://mf7cli.tk",
+      "https://mf7cli.hide.li"
+    ]
+  },
+  {
+    name: "mf7cli.ml",
+    url: [
+      "https://mf7cli.ml"
+    ]
+  },
+  {
+    name: "😟😟.tk",
+    url: [
+      "https://xn--928ha.tk"
+    ]
+  },
+  {
+    name: "kn4655.ml",
+    url: [
+      "https://kn4655.ml"
+    ]
+  },
+  {
+    name: "mf-3d.github.io",
+    url: [
+      "https://mf-3d.github.io"
+    ]
+  },
+  {
+    name: "mf7cli-BBS",
+    url: [
+      "https://bbs.mf7cli.potp.me"
+    ]
   }
+];
 
-  let doc = new JSDOM(md.render(page));
+/** @returns { Promise<{ error: any; body: any; response: request.Response, responseTime: number }> } */
+const rqt = (url) => {
+  start = new Date();
 
-  let title;
-  if (!doc.window.document.body.firstElementChild) {
-    title = "index";
-  } else {
-    title = doc.window.document.body.firstElementChild.innerHTML;
-  }
+  return new Promise((resolve, reject)=> {
+    request(url, (error, response, body)=> {
+      const responseTime = (new Date(new Date() - start)).getMilliseconds();
 
-  res.render(`./page.ejs`, {
-    title,
-    content: doc.window.document.body.innerHTML
+      resolve({ error, body, response, responseTime });
+    });
   });
+}
+
+app.use("/style", express.static(`${__dirname}/style`));
+app.use("/image", express.static(`${__dirname}/static/image`));
+
+app.get("/", (req, res) => {
+  res.sendFile(`${__dirname}/public/index.html`);
 });
 
-app.get("/news/([A-Za-z0-9])*/\:pageId", (req, res) => {
-  const pageId = req.url.replace("/news/", "");
-  if (pageId.toLowerCase() === "index") {
-    res.redirect("/");
-    return;
-  }
-
-  const page = fs.readFileSync(require("path").join(__dirname, "contents", `${pageId}.md`), { encoding: "utf-8" });
-
-  if (!page) {
-    console.log(require("path").join(__dirname, "contents", `${pageId}.md`))
-    res.status(404);
-
-    return;
-  }
-
-  let doc = new JSDOM(md.render(page));
-
-  let title;
-  if (!doc.window.document.body.firstElementChild) {
-    title = require("path").basename(pageId, ".md");
-  } else {
-    title = doc.window.document.body.firstElementChild.innerHTML;
-  }
-
-  res.render(`./page.ejs`, {
-    title,
-    content: doc.window.document.body.innerHTML
-  });
+app.get("/status", (req, res) => {
+  res.sendFile(`${__dirname}/public/status.html`);
 });
 
-app.get("/news/:pageId", (req, res) => {
-  console.log(req.params.pageId);
-  if (req.params.pageId.toLowerCase() === "index") {
-    res.redirect("/");
-    return;
-  }
-
-  const page = fs.readFileSync(require("path").join(__dirname, "contents", `${req.params.pageId}.md`), { encoding: "utf-8" });
-
-  if (!page) {
-    console.log(require("path").join(__dirname, "contents", `${req.params.pageId}.md`))
-    res.status(404);
-
-    return;
-  }
-
-  let doc = new JSDOM(md.render(page));
-
-  let title;
-  if (!doc.window.document.body.firstElementChild) {
-    title = require("path").basename(req.params.pageId, ".md");
-  } else {
-    title = doc.window.document.body.firstElementChild.innerHTML;
-  }
-
-  res.render(`./page.ejs`, {
-    title,
-    content: doc.window.document.body.innerHTML
-  });
+app.get("/links", (req, res) => {
+  res.sendFile(`${__dirname}/public/links.html`);
 });
 
-app.get('/api/v1/latestNews', (req, res) => {
-  let dir = listFiles(`${__dirname}/contents`);
-  // let dir = fs.readdirSync(`${__dirname}/contents/`);
+app.get("/lab", (req, res) => {
+  res.sendFile(`${__dirname}/public/lab.html`);
+});
 
-  let newsDates = [];
+app.get("/api/v1/background_image/random", (req, res) => {
+  const imageList = [ "1.png", "2.png" ];
+  let rnd = Math.floor(Math.random() * (imageList.length - 0) + 0);
+  res.sendFile(`${__dirname}/static/background_image/${imageList[rnd]}`);
+});
 
-  for (let i = 0; i < dir.length; i++) {
-    if (i > 5) break;
-    const newsStat = fs.statSync(dir[i], { encoding: "utf-8" });
+app.get("/api/v1/statusCode/get/all", async (req, res) => {
+  let status = [];
 
-    if (!newsStat.isDirectory()) {
-      const newsDate = newsStat.mtime;
-      const newsHtml = md.render(fs.readFileSync(dir[i], { encoding: "utf-8" }));
-  
-      let doc = new JSDOM(newsHtml);
-  
-      let title;
-      if (!doc.window.document.body.firstElementChild) {
-        title = require("path").basename(dir[i], ".md");
+  for (const i in sites) {
+    const urls = sites[i];
+    const siteStatus = [];
+    for (const i in urls.url) {
+      const url = urls.url[i];
+
+      const res = await rqt(url);
+      if (res.error) {
+        siteStatus[siteStatus.length] = {
+          name: urls.name,
+          url,
+          statusCode: 0,
+          ping: res.responseTime
+        }
       } else {
-        title = doc.window.document.body.firstElementChild.innerHTML;
-      }
-  
-      newsDates[newsDates.length] = {
-        date: new Date(newsDate.toLocaleString({ timeZone: 'Asia/Tokyo' })),
-        fileName: dir[i],
-        title,
-        link: `/${require("node:path").join("news", require("node:path").dirname(dir[i]).replace(`${__dirname}/contents`, ""), require("node:path").basename(dir[i], ".md"))}`
+        siteStatus[siteStatus.length] = {
+          name: urls.name,
+          url,
+          statusCode: res.response.statusCode,
+          ping: res.responseTime
+        }
       }
     }
 
-
+    status[status.length] = siteStatus;
   }
 
-  let latestNews = newsDates.sort((a, b) => {
-    return a.date.getTime() - b.date.getTime()
-  });
-
-  res.json(latestNews);
+  res.json(status);
 });
 
 app.use((req, res, next) => {
-  res.sendFile(`${__dirname}/error/404.html`);
+  res.sendFile(`${__dirname}/public/404.html`);
 });
 
-let server = app.listen(3000, function(){
-  console.log("Node.js is listening to PORT:" + server.address().port);
+app.listen(3000, () => {
+  console.log("サーバーが起動しました。")
 });
