@@ -83,6 +83,7 @@ const rqt = (url) => {
 
 app.use("/style", express.static(`${__dirname}/style`));
 app.use("/image", express.static(`${__dirname}/static/image`));
+app.use("/files", express.static(`${__dirname}/static/files`));
 
 app.get("/", (req, res) => {
   res.sendFile(`${__dirname}/public/index.html`);
